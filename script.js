@@ -28,4 +28,15 @@ function playRound(playerSelection, computerSelection){
     }
 }
 
+function game(){
+    let count = 0
+    var input
+    while (count < 4){
+        input = prompt("Input a move!")
+        console.log(playRound(input, computerPlay()))
+    }
+}
+
+game()
+
 // console.log(computerPlay())
