@@ -26,6 +26,9 @@ function playRound(playerSelection, computerSelection){
     else if (playerSelection === "scissor" && computerSelection === "paper"){
         return "You Win! Scissor beats Paper"
     }
+    else {
+        return "Invalid Input!"
+    }
 }
 
 function game(){
