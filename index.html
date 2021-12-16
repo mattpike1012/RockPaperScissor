@@ -3,8 +3,31 @@
 <head>
   <title>Page Title</title>
   <meta charset="UTF-8"/>
+  <script src = "script.js" defer></script>
+  <link rel = "stylesheet" href = "style.css">
 </head>
 <body>
-  <script src = "script.js"></script>
+  <div class = "container">
+    <h1 class = "header">ROCK!! PAPER!! SCISSORS!!</h1>  
+    <div class = "buttons">
+      <button id = 'btnRock' class = 'btn border'>Rock</button>
+      <button id = 'btnPaper' class = 'btn border'>Paper</button>
+      <button id = 'btnScissor' class = 'btn border'>Scissor</button>      
+    </div>
+    <div class = "results container border">
+      <h3 class = "header">Results:</h3>
+      <p class = "result"></p>
+      <div class = "container-horizontal">
+        <div class = "container">
+          <h2>Player Results</h2>
+          <p id = "playerResults">0</p>
+        </div>
+        <div class="container">
+          <h2>Computer Results</h2>
+          <p id = "computerResults">0</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

@@ -5,41 +5,72 @@ function computerPlay(){
 
 function playRound(playerSelection, computerSelection){
     playerSelection = playerSelection.toLowerCase()
+    const resultsContainer = document.querySelector(".results");
+    const results = document.querySelector(".result");
+    var playerResults = parseInt(document.querySelector("#playerResults").textContent, 10);
+    var computerResults = parseInt(document.querySelector("#computerResults").textContent, 10);
     if ((playerSelection === "rock" && computerSelection === "rock") || (playerSelection === "paper" && computerSelection === "paper") || (playerSelection === "scissor" && computerSelection === "scissor")){
-        return "Tie!"
+        result = "Tie!";
     }
     else if (playerSelection === "rock" && computerSelection === "paper"){
-        return "You Lose! Paper beats Rock"
+        result = "You Lose! Paper beats Rock";
+        computerResults++;
     }
     else if (playerSelection === "rock" && computerSelection === "scissor"){
-        return "You Win! Rock beats Scissor"
+        result = "You Win! Rock beats Scissor";
+        playerResults++;
     }
     else if (playerSelection === "paper" && computerSelection === "rock"){
-        return "You Win! Paper beats Rock"
+        result =  "You Win! Paper beats Rock";
+        playerResults++;
     }
     else if (playerSelection === "paper" && computerSelection === "scissor"){
-        return "You Lose! Scissor beats Paper"
+        result =  "You Lose! Scissor beats Paper";
+        computerResults++;
     }
     else if (playerSelection === "scissor" && computerSelection === "rock"){
-        return "You Lose! Rock beats Scissor"
+        result =  "You Lose! Rock beats Scissor";
+        computerResults++;
     }
     else if (playerSelection === "scissor" && computerSelection === "paper"){
-        return "You Win! Scissor beats Paper"
+        result = "You Win! Scissor beats Paper";
+        playerResults++;
     }
-    else {
-        return "Invalid Input!"
+    results.textContent = result;
+    document.querySelector("#playerResults").textContent = playerResults;
+    document.querySelector("#computerResults").textContent = computerResults;
+
+    if (playerResults === 5 || computerResults === 5){
+        var winStatus = document.createElement('p');
+        if (playerResults === 5){
+            winStatus.textContent = "You have won!";
+        }
+        else {
+            winStatus.textContent = "The computer has won!";
+        }
+        resultsContainer.appendChild(winStatus);
     }
 }
 
-function game(){
-    let count = 0
-    var input
-    while (count < 4){
-        input = prompt("Input a move!")
-        console.log(playRound(input, computerPlay()))
+const btnRock = document.querySelector("#btnRock");
+const btnPaper = document.querySelector("#btnPaper");
+const btnScissor = document.querySelector("#btnScissor");
+
+var playerResults = parseInt(document.querySelector("#playerResults").textContent, 10);
+var computerResults = parseInt(document.querySelector("#computerResults").textContent, 10);
+
+btnRock.addEventListener("click", function () {
+    if (playerResults != 5 || computerResults != 5){
+        playRound('rock', computerPlay());
     }
-}
-
-game()
-
-// console.log(computerPlay())
+});
+btnPaper.addEventListener("click", function () {
+    if (playerResults != 5 || computerResults != 5){
+        playRound('paper', computerPlay());
+    }
+})
+btnScissor.addEventListener("click", function () {
+    if (playerResults != 5 || computerResults != 5){
+        playRound('scissor', computerPlay());
+    }
+});

@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+}
+.container-horizontal {
+    display: flex;
+    flex-direction: row;
+}
+
+.buttons {
+    display: flex;
+    gap:10px;
+}
+
+.border {
+    border: solid;
+    border-color: black;
+}
+
+.btn {
+    background: grey;
+    padding: 10px 20px;
+    font-size: 18px;
+    text-decoration: underline;
+}
+
+.header {
+    justify-self: flex-start;
+}
